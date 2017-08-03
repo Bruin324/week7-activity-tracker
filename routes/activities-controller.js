@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const User = require('./models/data.js');
+const User = require('../models/data.js');
 const jwt = require('jsonwebtoken');
 const passportJWT = require('passport-jwt');
+const passport = require('passport');
 
 
 //create new activity for single user

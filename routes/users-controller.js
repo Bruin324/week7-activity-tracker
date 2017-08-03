@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const User = require('./models/data.js');
+const User = require('../models/data.js');
 const jwt = require('jsonwebtoken');
+const passport = require('passport');
 const passportJWT = require('passport-jwt');
-const ExtractJWT = passportJWT.ExtractJWT;
+const ExtractJwt = passportJWT.ExtractJwt;
 const JWTStrategy = passportJWT.Strategy;
 
 const jwtOptions = {

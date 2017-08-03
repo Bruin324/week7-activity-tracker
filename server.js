@@ -9,15 +9,15 @@ const statsController = require('./routes/stats-controller');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const passportJWT = require('passport-jwt');
-const ExtractJWT = passportJWT.ExtractJWT;
-const JWTStrategy = passportJWT.Strategy;
+const ExtractJwt = passportJWT.ExtractJwt;
+const JwtStrategy = passportJWT.Strategy;
 
 
 const application = express();
 
 const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromAuthHeader(),
-    secret: 'thisIsTheSecret'
+    secretOrKey: 'thisIsTheSecret'
 }
 
 var strategy = new JwtStrategy(jwtOptions, async function(jwt_payload, next) {
@@ -39,8 +39,8 @@ application.use(bodyParser.urlencoded());
 application.use(passport.initialize());
 
 application.use(userController);
-applicaiton.use(activitiesController);
-application.use(statsControlle);
+application.use(activitiesController);
+application.use(statsController);
 
 application.listen(3000, () => {
     console.log('server started');
